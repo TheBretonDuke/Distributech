@@ -1,0 +1,8 @@
+# Ignorer la base de données locale
+bdd/db/
+*.dblwr
+*.ibd
+*.frm
+*.MYD
+*.MYI
+*.ib_logfile*

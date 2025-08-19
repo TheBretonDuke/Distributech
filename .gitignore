@@ -6,3 +6,6 @@ bdd/db/
 *.MYD
 *.MYI
 *.ib_logfile*
+
+# Ignorer le .dtvenv
+.dtvenv/

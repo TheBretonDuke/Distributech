@@ -1,4 +1,4 @@
-Table des matières:
+1 Table des matières:
 
 Contexteee
 
@@ -14,7 +14,7 @@ Licence
 Contexte : Distributech est un projet de gestion des stocks et des commandes pour un grossiste en équipements électroniques collaborant avec un réseau de revendeurs régionaux.
 L'objectif est de centraliser les données provenant de plusieurs sources afin de suivre l'évolution des stocks et des commandes de manière fiable.
 
-Objectifs :
+2 Objectifs :
 
 Mettre en place une base SQL relationnelle pour modéliser :
 Les revendeurs et leurs régions

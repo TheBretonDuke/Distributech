@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
  
 <head>
@@ -18,3 +19,110 @@
     <a href="suivant.html"><img src="" alt=>CLIQUEZ ICI</a>
    
 </body>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <audio src="Solutech.mp3" autoplay></audio>
+  <title>Solu Pip - Console Solutech</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="pipboy">
+    <header class="topbar">
+      <h1>Solutech</h1>
+      <span class="subtitle">Console Solu PIP // Vault P4</span>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab">ETAT DES STOCKS DE DISTRIBUTECH</button>
+    </nav>
+
+    <main class="grid">
+      <!-- Colonne gauche -->
+      <section class="panel">
+        <h2>La Team Solutech</h2>
+        <p>
+          Société spécialisée dans la distribution de produits électroniques
+          et informatiques, fondée en 1936.
+        </p>
+        <p>
+          Notre mission est de fournir des solutions technologiques innovantes
+          et de qualité à nos clients, en mettant l'accent sur le service client
+          et la satisfaction.
+        </p>
+        <p>
+          Solutech, la solution par la Tech ! ! !
+        </p>
+        <img src="Solutech.png" alt="Logo Solutech">
+      </section>
+
+      <!-- Colonne centrale -->
+      <section class="panel">
+        <h2>Données (CSV Dropbox)</h2>
+        <div id="csv-table"></div>
+
+        <p class="hint">
+          <span class="dot"></span> Récupération des données depuis le Vault P4 :
+          <a class="mono"
+             href="https://dl.dropboxusercontent.com/scl/fi/ozmuzq313upff1sn0ht7p/etat_stock_par_produit.csv?rlkey=sp7rhbyyqykcaxla3e9l9hsid"
+             target="_blank" rel="noopener">
+            dropbox://etat_stock_par_produit.csv
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="statusline">
+      V 0.1 • 29-08-2025 • Solutech
+    </footer>
+  </div>
+
+  <!-- JS pour charger le CSV directement -->
+  <script>
+    const dropboxUrl =
+      "https://dl.dropboxusercontent.com/scl/fi/ozmuzq313upff1sn0ht7p/etat_stock_par_produit.csv?rlkey=sp7rhbyyqykcaxla3e9l9hsid";
+
+    fetch(dropboxUrl)
+      .then(response => response.text())
+      .then(data => {
+        const rows = data.split('\n').map(row => row.split(','));
+        let html = "<table class='csv'>";
+
+        rows.forEach((row, i) => {
+          html += "<tr>";
+          row.forEach((cell, j) => {
+            const val = cell.trim();
+            if (i === 0) {
+              // première ligne = en-tête
+              html += `<th>${val}</th>`;
+            } else {
+              // si c'est un nombre ET que ce n’est pas la colonne PRODUCT_ID
+              if (!isNaN(val) && val !== "" && rows[0][j] !== "PRODUCT_ID") {
+                html += `<td>
+                           <div class="meter">
+                             <div class="fill" style="width:${val}%"></div>
+                           </div>
+                           <span>${val}</span>
+                         </td>`;
+              } else {
+                html += `<td>${val}</td>`;
+              }
+            }
+          });
+          html += "</tr>";
+        });
+
+        html += "</table>";
+        document.getElementById("csv-table").innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById("csv-table").innerHTML =
+          "<p>Données consommées par un dealer de Data Cola.</p>";
+        console.error("Erreur :", error);
+      });
+  </script>
+
+</body>
+</html>
+

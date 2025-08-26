@@ -1,42 +1,3 @@
-
-h1{
-     align-items: middle;
-     color: rgb(0, 255, 0);
-     font-size: 5em;
-     font-family: "Courier New";
- 
-}
- 
-body{
-    text-align: center;
-    background-image: url(solutech1.png);
-    background-size: cover;
-}
-img{
-    text-align: center;
-    background-image: url(suivant.jpg);
-   
-}
- 
-a{
-    position: absolute;
-      top: 40%;  
-      left: 53%;  
-      width: 80px;  
-      height: 30px;  
-      font-size: 1em;
-     
-   
-      color: white;
-      transform: translate(-50%, -50%);
-     
-}
- 
-label{
-    color: white;
-    font-size: 1.5em;
-    font-family: "Courier New";
-
 :root {
   --green: #14ff64;
   --green-dim: #0ee056;
@@ -231,5 +192,4 @@ body {
 @keyframes jitter {
   from { transform: translateY(0); opacity: .98; }
   to { transform: translateY(.5px); opacity: 1; }
-main
 }

@@ -9,3 +9,5 @@ bdd/db/
 
 # Ignorer le .dtvenv
 .dtvenv/
+
+.DS_Store
